@@ -4,15 +4,12 @@ public class Ui {
 
     public static void menu() {
 
+        //----- Variables -----//
         String choice = "0";
+        String guess;
         Scanner input = new Scanner(System.in);
 
         LanguageStatistics reference = new LanguageStatistics();
-
-        //Test variable
-        String testsve = "kalle är så häftig, han kommer från Stockholm. Stockholm är häftig.";
-        String testeng = "charles is one cool guy, he is home from Brighton.";
-        String testfin = "hei, nimeni on kalle, olen suomalainen.";
 
         //Texts to be used for analyses
         //English
@@ -63,50 +60,31 @@ public class Ui {
         Language swe = new Language(treatedTextSwe, "Swedish");
         reference.addLanguage(swe);
 
-        //simulated input
-        Language unknown = new Language(testsve, "Unknown");
-        reference.addLanguage(unknown);
-        reference.languages.get("Unknown").calculateFirstCharOfWordDistribution();
+        while (!choice.equals("3")) {
 
-        while (!choice.equals("4")) {
-
-            System.out.println(" -------------------------");
-            System.out.println("|1. Calculate opt 1       |");
-            System.out.println("|2. Calculate opt 2       |");
-            System.out.println("|3. Calculate opt 3       |");
-            System.out.println("|4. Exit                  |");
-            System.out.println(" -------------------------");
+            System.out.println(" --------------------------------");
+            System.out.println("|1. Show all reference languages |");
+            System.out.println("|2. Analyse input text           |");
+            System.out.println("|3. Exit                         |");
+            System.out.println(" --------------------------------");
 
             choice = input.nextLine();
 
             switch (choice) {
 
                 case "1":
-                    System.out.println("Case 1");
-                    //String text = input.nextLine();
-                    System.out.println(reference.languages.keySet());
-                    System.out.println(reference.languages.get("Unknown").charDistributionFirstLetter);
-                    System.out.println("----");
-                    System.out.println(reference.languages.get("German").charDistributionFirstLetter);
-                    System.out.println("----");
+                    reference.printAllLanguages();
                     break;
 
                 case "2":
-                    System.out.println("Case 2");
-                    swe.calculateCharDistribution(testsve);
-                    System.out.println(swe.words[0]);
+                    System.out.println("Please type a sentence so I can guess what language it is.");
+                    guess = input.nextLine();
+                    Language unknown = new Language(guess, "Unknown");
+                    reference.guessLanguage(unknown);
                     break;
 
                 case "3":
-                    System.out.println("Case 3");
-
-                    reference.printAllLanguages();
-
-
-                    break;
-
-                case "4":
-                    System.out.println("Case 4, Goodbye!");
+                    System.out.println("Goodbye!");
                     break;
 
                 default:

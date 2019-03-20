@@ -2,11 +2,11 @@ import java.util.*;
 
 public class Language {
 
-    //---- Variables -----//
+    //---- Variables & Lists-----//
     String content;
     String languageLabel;
     String [] words;
-    Map<String,Double> charDistribution = new HashMap<>();
+    HashMap<String,Double> charDistribution = new HashMap<>();
     Map<String,Double> charDistributionThree = new HashMap<>();
     Map<String,Double> charDistributionFirstLetter = new HashMap<>();
 
@@ -20,21 +20,21 @@ public class Language {
         calculateFirstCharOfWordDistribution();
     }
 
+    //---- Set Functions ----//
     public void setLanguageLabel(String languageLabel) {
         this.languageLabel = languageLabel;
     }
-
     public void setContent(String content) {
         //textSanitizer removes non alphabetic chars
         this.content = content;
     }
-
     public void setWords(String content){
         String treatedContent = FileHandler.textSanitizerFirstWord(content);
         String[] words = treatedContent.split(" ");
         this.words =words;
     }
 
+    //---- Calculation Functions ----//
     public void calculateCharDistribution(String content){
 
         String treatedContent = FileHandler.textSanitizer(content);
@@ -81,7 +81,6 @@ public class Language {
             entry.setValue(finalize);
         }
     }
-
     public void calculateFirstCharOfWordDistribution(){
 
 
@@ -114,7 +113,5 @@ public class Language {
             entry.setValue(finalize);
         }
     }
-    public void combinedDistribution(){
-        //todo:fix
-    }
+
 }

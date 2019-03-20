@@ -29,6 +29,7 @@ public class FileHandler {
     }
     //Sanitizer for calculateCharDistribution & calculateThreeCharDistribution
     public static String textSanitizer(String str) {
+
         String newStr = str.replaceAll("\\s+", "").replaceAll("\\.", "")
                 .replaceAll("\\,","")
                 .replaceAll("\\.","")
@@ -47,18 +48,9 @@ public class FileHandler {
 
     //Sanitizer for calculateFirstCharOfWordDistribution
     public static String textSanitizerFirstWord(String str) {
+
         String newStr = str.replaceAll("\\.","");
-                /*.replaceAll("\\,","")
-                .replaceAll("\\[","")
-                .replaceAll("\\]","")
-                .replaceAll("\\¸","")
-                .replaceAll("\\(","")
-                .replaceAll("\\)","")
-                .replaceAll("\\‰","")
-                .replaceAll("\\ˆ","")
-                .replaceAll("\\*","")
-                .replaceAll("\\:","").toLowerCase();
-                */
+
         return newStr;
     }
 
