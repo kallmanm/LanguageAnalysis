@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.regex.Pattern;
 
 public class FileHandler {
 
@@ -26,7 +27,39 @@ public class FileHandler {
 
         return text;
     }
-    public static void textSanitizer(){
-        //todo:large cap to small, sanitize symbols, etc
+    //Sanitizer for calculateCharDistribution & calculateThreeCharDistribution
+    public static String textSanitizer(String str) {
+        String newStr = str.replaceAll("\\s+", "").replaceAll("\\.", "")
+                .replaceAll("\\,","")
+                .replaceAll("\\.","")
+                .replaceAll("\\[","")
+                .replaceAll("\\]","")
+                .replaceAll("\\¸","")
+                .replaceAll("\\(","")
+                .replaceAll("\\)","")
+                .replaceAll("\\‰","")
+                .replaceAll("\\ˆ","")
+                .replaceAll("\\*","")
+                .replaceAll("\\:","").toLowerCase();
+
+        return newStr;
     }
+
+    //Sanitizer for calculateFirstCharOfWordDistribution
+    public static String textSanitizerFirstWord(String str) {
+        String newStr = str.replaceAll("\\.","");
+                /*.replaceAll("\\,","")
+                .replaceAll("\\[","")
+                .replaceAll("\\]","")
+                .replaceAll("\\¸","")
+                .replaceAll("\\(","")
+                .replaceAll("\\)","")
+                .replaceAll("\\‰","")
+                .replaceAll("\\ˆ","")
+                .replaceAll("\\*","")
+                .replaceAll("\\:","").toLowerCase();
+                */
+        return newStr;
+    }
+
 }

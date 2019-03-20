@@ -9,6 +9,13 @@ public class LanguageStatistics {
     }
 
     public void guessLanguage(){
-        //todo:fix
+        //todo: compare the input vs the source languages
+
+    }
+
+     void printAllLanguages(){
+        for(Map.Entry<String,Language> entry : languages.entrySet()){
+            System.out.println(entry.getKey() + ": " + entry.getValue().content);
+        }
     }
 }
