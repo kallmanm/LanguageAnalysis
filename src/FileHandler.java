@@ -2,8 +2,6 @@ import java.io.*;
 
 public class FileHandler {
 
-    //todo: add all methods needed for handeling all data management & regex management
-
 
     public static String fileReader(String URL){
 
@@ -27,5 +25,8 @@ public class FileHandler {
         }
 
         return text;
+    }
+    public static void textSanitizer(){
+        //todo:large cap to small, sanitize symbols, etc
     }
 }
