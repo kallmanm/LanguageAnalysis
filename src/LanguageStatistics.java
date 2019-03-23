@@ -25,6 +25,7 @@ public class LanguageStatistics {
                 sumValue += result2.get(entry.getKey());
                 if(result3.containsKey(entry.getKey())){
                     sumValue += result3.get(entry.getKey());
+                    sumValue = sumValue/3;
                     sumResults.put(entry.getKey(),sumValue);
                     if(sumValue < lowestValue){
                         lowestValue=sumValue;
@@ -33,8 +34,11 @@ public class LanguageStatistics {
             }
         }
         System.out.println("TOTAL RESULTS:");
-        System.out.println(sumResults);
-
+        System.out.println("---------------------------------");
+        for(Map.Entry<String,Double> entry : sumResults.entrySet()){
+            System.out.format("|%10s|%-20s|\n", entry.getKey(),entry.getValue());
+        }
+        System.out.println("---------------------------------");
         for(Map.Entry entry: sumResults.entrySet()){
             if(lowestValue.equals(entry.getValue())){
                 System.out.println("I think you are typing in: "+entry.getKey());
@@ -71,9 +75,11 @@ public class LanguageStatistics {
             //System.out.println("------------------------");
         }
         System.out.println("guessLanguageCharDistribution results:");
-        System.out.println("*** ----------------------- ***");
-        System.out.println(comparedValues);
-        System.out.println("*** ----------------------- ***");
+        System.out.println("---------------------------------");
+        for(Map.Entry<String,Double> entry : comparedValues.entrySet()){
+            System.out.format("|%10s|%-20s|\n", entry.getKey(),(double)entry.getValue());
+        }
+        System.out.println("---------------------------------");
         return  comparedValues;
     }
     public HashMap<String,Double> guessLanguageThreeCharDistribution(Language input){
@@ -101,9 +107,11 @@ public class LanguageStatistics {
             //System.out.println("------------------------");
         }
         System.out.println("guessLanguageThreeCharDistribution results:");
-        System.out.println("*** ----------------------- ***");
-        System.out.println(comparedValues);
-        System.out.println("*** ----------------------- ***");
+        System.out.println("---------------------------------");
+        for(Map.Entry<String,Double> entry : comparedValues.entrySet()){
+            System.out.format("|%10s|%-20s|\n", entry.getKey(),(double)entry.getValue());
+        }
+        System.out.println("---------------------------------");
 
         return comparedValues;
     }
@@ -132,9 +140,11 @@ public class LanguageStatistics {
             //System.out.println("------------------------");
         }
         System.out.println("guessLanguageFirstCharOfWordDistribution results:");
-        System.out.println("*** ----------------------- ***");
-        System.out.println(comparedValues);
-        System.out.println("*** ----------------------- ***");
+        System.out.println("---------------------------------");
+        for(Map.Entry<String,Double> entry : comparedValues.entrySet()){
+            System.out.format("|%10s|%-20s|\n", entry.getKey(),(double)entry.getValue());
+        }
+        System.out.println("---------------------------------");
 
         return comparedValues;
     }
